@@ -1229,5 +1229,55 @@ document.addEventListener('error', function(e) {
     }
 }, true);
 
+// Fungsi untuk menyesuaikan navbar berdasarkan ukuran layar
+function adjustNavbarForMobile() {
+    const navActions = document.querySelector('.nav-actions');
+    const loginBtn = document.getElementById('login-btn');
+    const windowWidth = window.innerWidth;
+    
+    if (windowWidth <= 480) {
+        // Untuk mobile kecil, sembunyikan teks "Masuk"
+        if (loginBtn) {
+            const btnText = loginBtn.querySelector('.btn-text');
+            if (btnText) {
+                btnText.style.display = 'none';
+            }
+        }
+        
+        // Perkecil semua tombol
+        document.querySelectorAll('.nav-actions .cta-button').forEach(btn => {
+            btn.style.padding = '6px 8px';
+            btn.style.fontSize = '0.7rem';
+        });
+    } else if (windowWidth <= 767) {
+        // Untuk tablet kecil
+        document.querySelectorAll('.nav-actions .cta-button').forEach(btn => {
+            btn.style.padding = '8px 10px';
+            btn.style.fontSize = '0.75rem';
+        });
+    } else {
+        // Reset untuk desktop
+        document.querySelectorAll('.nav-actions .cta-button').forEach(btn => {
+            btn.style.padding = '';
+            btn.style.fontSize = '';
+        });
+        
+        if (loginBtn) {
+            const btnText = loginBtn.querySelector('.btn-text');
+            if (btnText) {
+                btnText.style.display = 'inline-block';
+            }
+        }
+    }
+}
+
+// Panggil saat load dan resize
+window.addEventListener('load', adjustNavbarForMobile);
+window.addEventListener('resize', adjustNavbarForMobile);
+
+// Tambahkan di initEventListeners()
+// ... kode yang ada ...
+
 // Log initialization complete
 console.log('Segeng Cloud website initialized successfully');
+
