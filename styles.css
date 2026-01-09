@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;600;700&display=swap');
+
 :root {
     --primary: #00a8ff;
     --primary-dark: #0097e6;
@@ -14,6 +16,7 @@
     --panel-bg: #101320;
     --card-bg: #1a1e2e;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --vh: 1vh; /* Untuk mobile fix */
 }
 
 * {
@@ -34,7 +37,8 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     font-size: 1rem;
-    padding-top: 80px; /* Untuk mengkompensasi fixed header */
+    padding-top: 80px;
+    min-height: calc(var(--vh, 1vh) * 100);
 }
 
 h1, h2, h3, h4, h5 {
