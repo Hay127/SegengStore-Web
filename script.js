@@ -1,7 +1,5 @@
-console.log('Segeng Cloud - Loading website...');
-// Data untuk website Segeng Cloud
+// ===== WEBSITE DATA =====
 const websiteData = {
-    // Data paket hosting
     plans: [
         {
             id: 1,
@@ -63,28 +61,8 @@ const websiteData = {
         },
         {
             id: 4,
-            name: "Paket Anomali",
-            category: "standard",
-            description: "Untuk server dengan banyak plugin & mod",
-            price: "Rp 80K",
-            popular: true,
-            icon: "fas fa-bolt",
-            features: [
-                "16 GB RAM DDR4",
-                "300% vCPU",
-                "120 GB SSD NVMe",
-                "30 Slot Pemain",
-                "Panel Pterodactyl",
-                "DDoS Protection Premium",
-                "Backup Harian",
-                "Support Priority"
-            ],
-            unavailable: []
-        },
-        {
-            id: 5,
             name: "Paket Super",
-            category: "premium",
+            category: "standard",
             description: "Server performa tinggi untuk komunitas kecil",
             price: "Rp 35K",
             popular: false,
@@ -102,10 +80,30 @@ const websiteData = {
             unavailable: []
         },
         {
+            id: 5,
+            name: "Paket Anomali",
+            category: "premium",
+            description: "Untuk server dengan banyak plugin & mod",
+            price: "Rp 80K",
+            popular: true,
+            icon: "fas fa-bolt",
+            features: [
+                "16 GB RAM DDR4",
+                "300% vCPU",
+                "120 GB SSD NVMe",
+                "30 Slot Pemain",
+                "Panel Pterodactyl",
+                "DDoS Protection Premium",
+                "Backup Harian",
+                "Support Priority"
+            ],
+            unavailable: []
+        },
+        {
             id: 6,
             name: "Paket Antimainstream",
             category: "premium",
-            description: "Server terbaik dengan enviroment yang mantap",
+            description: "Server terbaik dengan environment yang mantap",
             price: "Rp 60K",
             popular: true,
             icon: "fas fa-gem",
@@ -163,7 +161,6 @@ const websiteData = {
         }
     ],
     
-    // Data fitur
     features: [
         {
             title: "Performa Tinggi",
@@ -197,7 +194,6 @@ const websiteData = {
         }
     ],
     
-    // Data perbandingan
     comparison: [
         { 
             feature: "RAM", 
@@ -278,7 +274,6 @@ const websiteData = {
         }
     ],
     
-    // Data testimoni
     testimonials: [
         {
             name: "Ghaisan Athaillah Fuadi",
@@ -311,96 +306,45 @@ const websiteData = {
     ]
 };
 
-// Data untuk panel pembelian
-const planData = {
-    "Paket Basic Plus": {
-        price: "Rp 10K",
-        features: ["2 GB RAM DDR4", "100% vCPU", "20 GB SSD NVMe", "5 Slot Pemain", "Panel Pterodactyl", "Instalasi 3 Klik", "Backup Harian"]
-    },
-    "Paket Special": {
-        price: "Rp 20K",
-        features: ["4 GB RAM DDR4", "120% vCPU", "30 GB SSD NVMe", "10 Slot Pemain", "Panel Pterodactyl", "DDoS Protection Dasar", "Backup Harian"]
-    },
-    "Paket Subsidi": {
-        price: "Rp 35K",
-        features: ["8 GB RAM DDR4", "180% vCPU", "40 GB SSD NVMe", "15 Slot Pemain", "Panel Pterodactyl", "DDoS Protection Dasar", "Backup Harian", "Support Priority"]
-    },
-    "Paket Super": {
-        price: "Rp 35K",
-        features: ["4 GB RAM DDR4", "180% vCPU", "30 GB SSD NVMe", "10 Slot Pemain", "Panel Pterodactyl", "DDoS Protection Premium", "Backup Harian", "Support High Priority"]
-    },
-    "Paket Anomali": {
-        price: "Rp 80K",
-        features: ["16 GB RAM DDR4", "300% vCPU", "120 GB SSD NVMe", "30 Slot Pemain", "Panel Pterodactyl", "DDoS Protection Premium", "Backup Harian", "Support Priority"]
-    },
-    "Paket Antimainstream": {
-        price: "Rp 60K",
-        features: ["8 GB RAM DDR4", "200% vCPU", "50 GB SSD NVMe", "20 Slot Pemain", "Panel Pterodactyl", "DDoS Protection Premium", "Backup Harian", "Support High Priority"]
-    },
-    "Paket Ultra": {
-        price: "Rp 120K",
-        features: ["16 GB RAM DDR4", "350% Core vCPU", "150 GB SSD NVMe", "40 Slot Pemain", "Panel Pterodactyl", "DDoS Protection Premium", "Backup Harian", "24/7 Dedicated Support"]
-    },
-    "Paket G": {
-        price: "Rp 150K",
-        features: ["32 GB RAM DDR4", "700% vCPU", "200 GB SSD NVMe", "50 Slot Pemain", "Panel Pterodactyl", "DDoS Protection Premium", "Backup Harian", "24/7 Dedicated Support"]
-    }
-};
-
-// Inisialisasi aplikasi
+// ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM Loaded - Initializing Segeng Cloud');
+    console.log('Segeng Cloud - Initializing...');
     
-    // Sembunyikan loading overlay
-    setTimeout(function() {
+    // Hide loading screen
+    setTimeout(() => {
         const loadingOverlay = document.getElementById('loadingOverlay');
         if (loadingOverlay) {
             loadingOverlay.classList.add('hidden');
         }
+        document.body.classList.add('loaded');
     }, 800);
     
-    // Render komponen dinamis
+    // Render all components
     renderPricingCards();
     renderFeatures();
     renderComparisonTable();
     renderTestimonials();
     
-    // Inisialisasi event listeners
+    // Initialize functionality
     initEventListeners();
-    
-    // Inisialisasi animasi
     initAnimations();
+    initBackToTop();
     
-    // Fix untuk iOS viewport height
-    fixViewportHeight();
+    // Adjust for mobile
+    adjustForMobile();
+    
+    console.log('Segeng Cloud - Initialized successfully!');
 });
 
-// Fix untuk viewport height di iOS
-function fixViewportHeight() {
-    if (window.innerWidth <= 768) {
-        const setVH = () => {
-            const vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        };
-        
-        setVH();
-        window.addEventListener('resize', setVH);
-        window.addEventListener('orientationchange', setVH);
-    }
-}
-
-// Render kartu paket hosting
+// ===== RENDER FUNCTIONS =====
 function renderPricingCards() {
-    const pricingCardsContainer = document.getElementById('pricingCards');
-    if (!pricingCardsContainer) {
-        console.error('Pricing cards container not found');
-        return;
-    }
+    const container = document.getElementById('pricingCards');
+    if (!container) return;
     
-    let cardsHTML = '';
+    let html = '';
     
-    websiteData.plans.forEach(function(plan) {
-        cardsHTML += `
+    websiteData.plans.forEach(plan => {
+        html += `
             <div class="pricing-card ${plan.popular ? 'popular' : ''}" data-category="${plan.category}" data-plan="${plan.name}">
                 ${plan.popular ? '<div class="popular-badge">POPULAR</div>' : ''}
                 <div class="plan-icon">
@@ -412,37 +356,32 @@ function renderPricingCards() {
                 <div class="plan-period">per bulan</div>
                 
                 <ul class="plan-features">
-                    ${plan.features.map(function(feature) {
-                        return `<li><i class="fas fa-check"></i> ${feature}</li>`;
-                    }).join('')}
-                    ${plan.unavailable.map(function(feature) {
-                        return `<li class="feature-unavailable"><i class="fas fa-times"></i> ${feature}</li>`;
-                    }).join('')}
+                    ${plan.features.map(feature => `
+                        <li><i class="fas fa-check"></i> ${feature}</li>
+                    `).join('')}
+                    ${plan.unavailable.map(feature => `
+                        <li class="feature-unavailable"><i class="fas fa-times"></i> ${feature}</li>
+                    `).join('')}
                 </ul>
                 
-                <a href="#" class="cta-button plan-button" data-plan="${plan.name}">
-                    <i class="fas fa-shopping-cart"></i> <span class="btn-text">Pesan Sekarang</span>
-                </a>
+                <button class="cta-button plan-button" data-plan="${plan.name}">
+                    <i class="fas fa-shopping-cart"></i> Pesan Sekarang
+                </button>
             </div>
         `;
     });
     
-    pricingCardsContainer.innerHTML = cardsHTML;
-    console.log('Pricing cards rendered');
+    container.innerHTML = html;
 }
 
-// Render fitur
 function renderFeatures() {
-    const featuresContainer = document.querySelector('.features-grid');
-    if (!featuresContainer) {
-        console.error('Features container not found');
-        return;
-    }
+    const container = document.querySelector('.features-grid');
+    if (!container) return;
     
-    let featuresHTML = '';
+    let html = '';
     
-    websiteData.features.forEach(function(feature) {
-        featuresHTML += `
+    websiteData.features.forEach(feature => {
+        html += `
             <div class="feature-card">
                 <div class="feature-icon">
                     <i class="${feature.icon}"></i>
@@ -453,81 +392,61 @@ function renderFeatures() {
         `;
     });
     
-    featuresContainer.innerHTML = featuresHTML;
-    console.log('Features rendered');
+    container.innerHTML = html;
 }
 
-// Render tabel perbandingan
 function renderComparisonTable() {
-    const comparisonTable = document.getElementById('comparisonTable');
-    if (!comparisonTable) {
-        console.error('Comparison table not found');
-        return;
-    }
+    const container = document.getElementById('comparisonTable');
+    if (!container) return;
     
-    // Pilih 5 paket terpopuler untuk ditampilkan di tabel perbandingan
-    const selectedPackages = [
-        "Basic Plus",
-        "Special", 
-        "Subsidi",
-        "Anomali",
-        "Ultra"
-    ];
+    // Select packages to show
+    const packages = ["Basic Plus", "Special", "Subsidi", "Anomali", "Ultra"];
     
-    let tableHTML = `
+    let html = `
         <thead>
             <tr>
                 <th class="feature-name">Fitur</th>
+                ${packages.map(pkg => `<th class="feature-value">${pkg}</th>`).join('')}
+            </tr>
+        </thead>
+        <tbody>
     `;
     
-    // Header untuk setiap paket yang dipilih
-    selectedPackages.forEach(function(pkg) {
-        tableHTML += `<th class="feature-value">${pkg}</th>`;
+    websiteData.comparison.forEach(row => {
+        html += `
+            <tr>
+                <td class="feature-name">${row.feature}</td>
+                ${packages.map(pkg => {
+                    const value = row[pkg] || "-";
+                    const isNo = value === "Tidak";
+                    return `<td class="feature-value ${isNo ? 'no' : ''}">${value}</td>`;
+                }).join('')}
+            </tr>
+        `;
     });
     
-    tableHTML += `</tr></thead><tbody>`;
-    
-    // Data untuk setiap baris
-    websiteData.comparison.forEach(function(row) {
-        tableHTML += `<tr><td class="feature-name">${row.feature}</td>`;
-        
-        selectedPackages.forEach(function(pkg) {
-            const value = row[pkg] || "-";
-            const isNo = value === "Tidak";
-            tableHTML += `<td class="feature-value ${isNo ? 'no' : ''}">${value}</td>`;
-        });
-        
-        tableHTML += `</tr>`;
-    });
-    
-    tableHTML += '</tbody>';
-    comparisonTable.innerHTML = tableHTML;
-    console.log('Comparison table rendered');
+    html += '</tbody>';
+    container.innerHTML = html;
 }
 
-// Render testimonial
 function renderTestimonials() {
-    const testimonialsTrack = document.getElementById('testimonialsTrack');
-    const testimonialDots = document.getElementById('testimonialDots');
-    
-    if (!testimonialsTrack || !testimonialDots) {
-        console.error('Testimonial elements not found');
-        return;
-    }
+    const track = document.getElementById('testimonialsTrack');
+    const dots = document.getElementById('testimonialDots');
+    if (!track || !dots) return;
     
     let testimonialsHTML = '';
     let dotsHTML = '';
     
-    websiteData.testimonials.forEach(function(testimonial, index) {
-        // Rating stars
-        let starsHTML = '';
-        for (let i = 0; i < 5; i++) {
-            if (i < testimonial.rating) {
-                starsHTML += `<i class="fas fa-star"></i>`;
-            } else if (i === Math.floor(testimonial.rating) && testimonial.rating % 1 !== 0) {
-                starsHTML += `<i class="fas fa-star-half-alt"></i>`;
+    websiteData.testimonials.forEach((testimonial, index) => {
+        // Stars
+        let stars = '';
+        for (let i = 1; i <= 5; i++) {
+            if (i <= testimonial.rating) {
+                stars += '<i class="fas fa-star"></i>';
+            } else if (i - 0.5 === testimonial.rating) {
+                stars += '<i class="fas fa-star-half-alt"></i>';
             } else {
-                starsHTML += `<i class="far fa-star"></i>`;
+                stars += '<i class="far fa-star"></i>';
             }
         }
         
@@ -544,595 +463,476 @@ function renderTestimonials() {
                         <h4>${testimonial.name}</h4>
                         <p>${testimonial.role}</p>
                         <div class="testimonial-rating">
-                            ${starsHTML}
+                            ${stars}
                         </div>
                     </div>
                 </div>
             </div>
         `;
         
-        dotsHTML += `<button class="testimonial-dot ${index === 0 ? 'active' : ''}" data-index="${index}" aria-label="Testimoni ${index + 1}"></button>`;
+        dotsHTML += `<button class="testimonial-dot ${index === 0 ? 'active' : ''}" data-index="${index}"></button>`;
     });
     
-    testimonialsTrack.innerHTML = testimonialsHTML;
-    testimonialDots.innerHTML = dotsHTML;
+    track.innerHTML = testimonialsHTML;
+    dots.innerHTML = dotsHTML;
     
-    // Setup testimonial slider
-    setupTestimonialSlider();
-    console.log('Testimonials rendered');
+    // Initialize slider
+    initTestimonialSlider();
 }
 
-// Setup testimonial slider
-function setupTestimonialSlider() {
+// ===== FUNCTIONALITY =====
+function initEventListeners() {
+    // Mobile menu
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNavClose = document.getElementById('mobileNavClose');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+    
+    if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (mobileNav.classList.contains('active') && 
+            !mobileNav.contains(e.target) && 
+            e.target !== mobileMenuBtn) {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Plan filtering
+    const planButtons = document.querySelectorAll('.plan-selector-btn');
+    planButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Update active button
+            planButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Filter plans
+            const category = button.dataset.category;
+            const cards = document.querySelectorAll('.pricing-card');
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Order buttons
+    document.addEventListener('click', (e) => {
+        const orderBtn = e.target.closest('.plan-button');
+        if (orderBtn) {
+            e.preventDefault();
+            const planName = orderBtn.dataset.plan;
+            openOrderPanel(planName);
+        }
+    });
+    
+    // WhatsApp button
+    const whatsappBtn = document.querySelector('a[href*="wa.me"]');
+    if (whatsappBtn) {
+        whatsappBtn.addEventListener('click', (e) => {
+            if (!confirm('Anda akan diarahkan ke WhatsApp untuk konsultasi. Lanjutkan?')) {
+                e.preventDefault();
+            }
+        });
+    }
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            
+            e.preventDefault();
+            
+            const target = document.querySelector(href);
+            if (target) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = target.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (mobileNav.classList.contains('active')) {
+                    mobileNav.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+    });
+    
+    // Order panel
+    const orderPanel = document.getElementById('orderPanel');
+    const closePanelBtn = document.getElementById('closePanel');
+    
+    if (closePanelBtn) {
+        closePanelBtn.addEventListener('click', () => {
+            orderPanel.style.display = 'none';
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // Close panel on outside click
+    if (orderPanel) {
+        orderPanel.addEventListener('click', (e) => {
+            if (e.target === orderPanel) {
+                orderPanel.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+    }
+    
+    // Navbar scroll effect
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            header.style.backgroundColor = 'rgba(12, 14, 21, 0.98)';
+            header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
+        } else {
+            header.style.backgroundColor = 'rgba(12, 14, 21, 0.95)';
+            header.style.boxShadow = 'none';
+        }
+        
+        // Hide/show navbar on scroll (mobile only)
+        if (window.innerWidth <= 768) {
+            if (currentScroll > lastScroll && currentScroll > 200) {
+                // Scrolling down
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up
+                header.style.transform = 'translateY(0)';
+            }
+        }
+        
+        lastScroll = currentScroll;
+    });
+}
+
+function initTestimonialSlider() {
     const track = document.getElementById('testimonialsTrack');
     const cards = document.querySelectorAll('.testimonial-card');
     const dots = document.querySelectorAll('.testimonial-dot');
     const prevBtn = document.getElementById('testimonialPrev');
     const nextBtn = document.getElementById('testimonialNext');
     
-    if (!track || cards.length === 0) {
-        console.error('Testimonial slider elements not found');
-        return;
-    }
+    if (!track || cards.length === 0) return;
     
     let currentIndex = 0;
-    const totalCards = cards.length;
     let autoSlideInterval;
     
-    // Update slider position
     function updateSlider() {
         track.style.transform = `translateX(-${currentIndex * 100}%)`;
         
-        // Update active dot
-        dots.forEach(function(dot, index) {
+        // Update dots
+        dots.forEach((dot, index) => {
             dot.classList.toggle('active', index === currentIndex);
         });
     }
     
-    // Next slide
     function nextSlide() {
-        currentIndex = (currentIndex + 1) % totalCards;
+        currentIndex = (currentIndex + 1) % cards.length;
         updateSlider();
     }
     
-    // Previous slide
     function prevSlide() {
-        currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
         updateSlider();
     }
     
-    // Event listeners
-    if (prevBtn) {
-        prevBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            prevSlide();
-            resetAutoSlide();
-        });
-    }
+    // Button events
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
     
-    if (nextBtn) {
-        nextBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            nextSlide();
-            resetAutoSlide();
-        });
-    }
-    
-    // Dot click
-    dots.forEach(function(dot) {
-        dot.addEventListener('click', function(e) {
-            e.preventDefault();
-            currentIndex = parseInt(this.getAttribute('data-index'));
+    // Dot events
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            currentIndex = parseInt(dot.dataset.index);
             updateSlider();
-            resetAutoSlide();
         });
     });
     
-    // Reset auto slide timer
-    function resetAutoSlide() {
-        if (autoSlideInterval) {
-            clearInterval(autoSlideInterval);
-        }
-        startAutoSlide();
-    }
-    
-    // Start auto slide
+    // Auto slide
     function startAutoSlide() {
         autoSlideInterval = setInterval(nextSlide, 5000);
+    }
+    
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
     }
     
     // Start auto slide
     startAutoSlide();
     
-    // Pause auto slide on hover (desktop only)
-    if (window.innerWidth > 768) {
-        track.addEventListener('mouseenter', function() {
-            if (autoSlideInterval) {
-                clearInterval(autoSlideInterval);
-            }
-        });
-        
-        track.addEventListener('mouseleave', startAutoSlide);
-    }
-    
-    console.log('Testimonial slider initialized');
+    // Pause on hover
+    track.addEventListener('mouseenter', stopAutoSlide);
+    track.addEventListener('mouseleave', startAutoSlide);
 }
 
-// Inisialisasi event listeners
-function initEventListeners() {
-    console.log('Initializing event listeners');
-    
-    // Elements
-    const pricingCards = document.getElementById('pricingCards');
-    const scrollLeft = document.getElementById('scrollLeft');
-    const scrollRight = document.getElementById('scrollRight');
-    const purchasePanel = document.getElementById('purchasePanel');
-    const closePanel = document.getElementById('closePanel');
-    const planSelectorBtns = document.querySelectorAll('.plan-selector-btn');
-    const panelPlanName = document.getElementById('panelPlanName');
-    const panelPlanPrice = document.getElementById('panelPlanPrice');
-    const panelPlanPeriod = document.getElementById('panelPlanPeriod');
-    const panelFeaturesList = document.getElementById('panelFeaturesList');
-    const manualRedirect = document.getElementById('manualRedirect');
-    const demoBtn = document.getElementById('demo-btn');
-    const contactBtn = document.getElementById('contact-btn');
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileNavClose = document.getElementById('mobileNavClose');
-    const mobileNav = document.getElementById('mobileNav');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-    
-    // Scroll functionality for pricing cards
-    if (scrollLeft && pricingCards) {
-        scrollLeft.addEventListener('click', function(e) {
-            e.preventDefault();
-            pricingCards.scrollBy({ left: -350, behavior: 'smooth' });
-        });
-    }
-    
-    if (scrollRight && pricingCards) {
-        scrollRight.addEventListener('click', function(e) {
-            e.preventDefault();
-            pricingCards.scrollBy({ left: 350, behavior: 'smooth' });
-        });
-    }
-    
-    // Plan filtering functionality
-    planSelectorBtns.forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Update active button
-            planSelectorBtns.forEach(function(b) {
-                b.classList.remove('active');
-            });
-            btn.classList.add('active');
-            
-            const category = btn.getAttribute('data-category');
-            const cards = document.querySelectorAll('.pricing-card');
-            
-            // Show/hide cards based on category
-            cards.forEach(function(card) {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            
-            // Scroll to first visible card
-            const firstVisibleCard = document.querySelector('.pricing-card[style="display: flex"], .pricing-card:not([style])');
-            if (firstVisibleCard && window.innerWidth <= 768) {
-                firstVisibleCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-            }
-        });
-    });
-    
-    // Open purchase panel when plan button is clicked
-    document.addEventListener('click', function(e) {
-        const planButton = e.target.closest('.plan-button');
-        if (planButton) {
-            e.preventDefault();
-            const planName = planButton.getAttribute('data-plan');
-            openPurchasePanel(planName);
-        }
-    });
-    
-    // Function to open purchase panel
-    function openPurchasePanel(planName) {
-        // Set panel content based on selected plan
-        if (panelPlanName) panelPlanName.textContent = planName;
-        if (panelPlanPrice) panelPlanPrice.textContent = planData[planName].price;
-        if (panelPlanPeriod) panelPlanPeriod.textContent = "per bulan";
-        
-        // Clear and add features
-        if (panelFeaturesList) {
-            panelFeaturesList.innerHTML = '';
-            if (planData[planName] && planData[planName].features) {
-                planData[planName].features.forEach(function(feature) {
-                    const li = document.createElement('li');
-                    li.innerHTML = `<i class="fas fa-check"></i> ${feature}`;
-                    panelFeaturesList.appendChild(li);
-                });
-            }
-        }
-        
-        // Update redirect link with plan parameter
-        const redirectUrl = `https://ctrl.segengcloud.xyz/`;
-        if (manualRedirect) manualRedirect.href = redirectUrl;
-        
-        // Show panel
-        if (purchasePanel) {
-            purchasePanel.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevent scrolling behind panel
-            
-            // Auto redirect after 5 seconds
-            const redirectTimer = setTimeout(function() {
-                window.open(redirectUrl, '_blank');
-                purchasePanel.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }, 5000);
-            
-            // Store timer for cleanup
-            purchasePanel.dataset.redirectTimer = redirectTimer;
-        }
-    }
-    
-    // Close purchase panel
-    if (closePanel) {
-        closePanel.addEventListener('click', function(e) {
-            e.preventDefault();
-            closePurchasePanel();
-        });
-    }
-    
-    function closePurchasePanel() {
-        if (purchasePanel) {
-            purchasePanel.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            
-            // Clear redirect timer
-            if (purchasePanel.dataset.redirectTimer) {
-                clearTimeout(purchasePanel.dataset.redirectTimer);
-                delete purchasePanel.dataset.redirectTimer;
-            }
-        }
-    }
-    
-    // Close panel when clicking outside content
-    if (purchasePanel) {
-        purchasePanel.addEventListener('click', function(e) {
-            if (e.target === purchasePanel) {
-                closePurchasePanel();
-            }
-        });
-    }
-    
-    // Demo button functionality
-    if (demoBtn) {
-        demoBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            showNotification("Demo panel akan segera hadir! Saat ini Anda dapat melihat screenshots panel di halaman dokumentasi kami.", "info");
-        });
-    }
-    
-    // Contact button functionality
-    if (contactBtn) {
-        contactBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.open('https://wa.me/6285161266342?text=Halo%20Segeng%20Cloud,%20saya%20ingin%20konsultasi%20tentang%20hosting%20Minecraft', '_blank');
-        });
-    }
-    
-    // Mobile menu functionality
-    if (mobileMenuBtn && mobileNav) {
-        mobileMenuBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            mobileNav.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
-        });
-    }
-    
-    if (mobileNavClose && mobileNav) {
-        mobileNavClose.addEventListener('click', function(e) {
-            e.preventDefault();
-            closeMobileMenu();
-        });
-    }
-    
-    function closeMobileMenu() {
-        mobileNav.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-    
-    if (mobileNavLinks.length > 0 && mobileNav) {
-        mobileNavLinks.forEach(function(link) {
-            link.addEventListener('click', function(e) {
-                // Don't prevent default for external links
-                if (!this.href.includes('segengcloud.xyz') && !this.href.includes('tel:') && !this.href.includes('mailto:')) {
-                    e.preventDefault();
-                }
-                
-                // Close menu for internal links
-                if (this.getAttribute('href').startsWith('#')) {
-                    closeMobileMenu();
-                    
-                    // Scroll to section
-                    const targetId = this.getAttribute('href');
-                    if (targetId !== '#') {
-                        const targetElement = document.querySelector(targetId);
-                        if (targetElement) {
-                            setTimeout(() => {
-                                window.scrollTo({
-                                    top: targetElement.offsetTop - 80,
-                                    behavior: 'smooth'
-                                });
-                            }, 300);
-                        }
-                    }
-                }
-            });
-        });
-    }
-    
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-        if (anchor.getAttribute('href') === '#') return;
-        
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
-    // Navbar background on scroll
-    let lastScrollTop = 0;
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('header');
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (header) {
-            if (scrollTop > 100) {
-                header.style.backgroundColor = 'rgba(12, 14, 21, 0.98)';
-                header.style.boxShadow = '0 5px 30px rgba(0, 168, 255, 0.15)';
-                
-                // Hide navbar on scroll down (mobile only)
-                if (window.innerWidth <= 768) {
-                    if (scrollTop > lastScrollTop && scrollTop > 200) {
-                        // Scrolling down
-                        header.style.transform = 'translateY(-100%)';
-                    } else {
-                        // Scrolling up
-                        header.style.transform = 'translateY(0)';
-                    }
-                }
-            } else {
-                header.style.backgroundColor = 'rgba(12, 14, 21, 0.97)';
-                header.style.boxShadow = '0 5px 30px rgba(0, 168, 255, 0.1)';
-                header.style.transform = 'translateY(0)';
-            }
-            
-            lastScrollTop = scrollTop;
-        }
-    });
-    
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (mobileNav && mobileNav.classList.contains('active')) {
-            if (!mobileNav.contains(e.target) && e.target !== mobileMenuBtn && !mobileMenuBtn.contains(e.target)) {
-                closeMobileMenu();
-            }
-        }
-    });
-    
-    // Handle escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            if (mobileNav && mobileNav.classList.contains('active')) {
-                closeMobileMenu();
-            }
-            if (purchasePanel && purchasePanel.style.display === 'flex') {
-                closePurchasePanel();
-            }
-        }
-    });
-    
-    // Handle orientation change
-    window.addEventListener('orientationchange', function() {
-        // Close mobile menu on orientation change
-        if (mobileNav && mobileNav.classList.contains('active')) {
-            closeMobileMenu();
-        }
-        
-        // Recalculate hero height
-        setTimeout(fixViewportHeight, 100);
-    });
-    
-    console.log('Event listeners initialized');
-}
-
-// Inisialisasi animasi
 function initAnimations() {
-    console.log('Initializing animations');
-    
-    // Animate stats on scroll
+    // Animate counters
     const observerOptions = {
         threshold: 0.5,
         rootMargin: '0px 0px -50px 0px'
     };
     
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
                 animateCounter('servers-count', 0, 1250, 2000);
-                animateCounter('clients', 0, 5000, 2000);
+                animateCounter('clients-count', 0, 5000, 2000);
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
-    // Observe hero section
     const heroSection = document.querySelector('.hero');
     if (heroSection) observer.observe(heroSection);
     
-    // Animate elements on scroll
-    const fadeInObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
+    // Animate cards on scroll
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-visible');
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
             }
         });
     }, {
         threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+        rootMargin: '0px 0px -50px 0px'
     });
     
-    // Observe feature cards
-    document.querySelectorAll('.feature-card').forEach(function(card) {
-        fadeInObserver.observe(card);
+    // Observe all cards
+    document.querySelectorAll('.pricing-card, .feature-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        fadeObserver.observe(card);
     });
-    
-    // Add fade-in animation styles
-    if (!document.querySelector('#fade-in-styles')) {
-        const style = document.createElement('style');
-        style.id = 'fade-in-styles';
-        style.textContent = `
-            .feature-card {
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.6s ease, transform 0.6s ease;
-            }
-            
-            .feature-card.fade-in-visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            
-            .pricing-card {
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.6s ease, transform 0.6s ease;
-            }
-            
-            .pricing-card.fade-in-visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        `;
-        document.head.appendChild(style);
-    }
-    
-    // Observe pricing cards
-    document.querySelectorAll('.pricing-card').forEach(function(card) {
-        fadeInObserver.observe(card);
-    });
-    
-    console.log('Animations initialized');
 }
 
-// Counter animation function
+function initBackToTop() {
+    const backToTopBtn = document.getElementById('backToTop');
+    if (!backToTopBtn) return;
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
 function animateCounter(elementId, start, end, duration) {
     const element = document.getElementById(elementId);
     if (!element) return;
     
-    // If already animated, don't animate again
+    // Don't animate if already animated
     if (element.dataset.animated === 'true') return;
     element.dataset.animated = 'true';
     
-    let startTimestamp = null;
-    const step = function(timestamp) {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    let startTime = null;
+    
+    function animate(currentTime) {
+        if (!startTime) startTime = currentTime;
+        const progress = Math.min((currentTime - startTime) / duration, 1);
         const value = Math.floor(progress * (end - start) + start);
         
-        // Format angka dengan titik pemisah ribuan
-        const formattedValue = value.toLocaleString('id-ID');
-        
-        if (elementId === 'uptime') {
-            element.textContent = '99.9%';
-        } else if (elementId === 'support') {
-            element.textContent = '24/7';
-        } else {
-            element.textContent = formattedValue + '+';
-        }
+        element.textContent = value.toLocaleString('id-ID') + '+';
         
         if (progress < 1) {
-            window.requestAnimationFrame(step);
+            requestAnimationFrame(animate);
         }
-    };
-    window.requestAnimationFrame(step);
-}
-
-// Notification function
-function showNotification(message, type = "info") {
-    // Remove existing notification
-    const existingNotification = document.querySelector('.notification');
-    if (existingNotification) {
-        existingNotification.remove();
     }
     
-    // Create notification element
+    requestAnimationFrame(animate);
+}
+
+function openOrderPanel(planName) {
+    const panel = document.getElementById('orderPanel');
+    const planNameElement = document.getElementById('panelPlanName');
+    const planPriceElement = document.getElementById('panelPlanPrice');
+    const planPeriodElement = document.getElementById('panelPlanPeriod');
+    const featuresList = document.getElementById('panelFeaturesList');
+    const redirectBtn = document.getElementById('panelRedirectBtn');
+    
+    if (!panel) return;
+    
+    // Find plan data
+    const plan = websiteData.plans.find(p => p.name === planName);
+    if (!plan) return;
+    
+    // Update panel content
+    if (planNameElement) planNameElement.textContent = planName;
+    if (planPriceElement) planPriceElement.textContent = plan.price;
+    if (planPeriodElement) planPeriodElement.textContent = 'per bulan';
+    
+    // Update features
+    if (featuresList) {
+        featuresList.innerHTML = '';
+        plan.features.forEach(feature => {
+            const li = document.createElement('li');
+            li.innerHTML = `<i class="fas fa-check"></i> ${feature}`;
+            featuresList.appendChild(li);
+        });
+    }
+    
+    // Update redirect URL
+    if (redirectBtn) {
+        redirectBtn.href = `https://ctrl.segengcloud.xyz/?plan=${encodeURIComponent(planName)}`;
+    }
+    
+    // Show panel
+    panel.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    
+    // Auto redirect after 5 seconds
+    setTimeout(() => {
+        window.open(redirectBtn.href, '_blank');
+        panel.style.display = 'none';
+        document.body.style.overflow = '';
+    }, 5000);
+}
+
+function adjustForMobile() {
+    // Adjust navbar buttons for mobile
+    function adjustNavbar() {
+        const navActions = document.querySelector('.nav-actions');
+        const windowWidth = window.innerWidth;
+        
+        if (!navActions) return;
+        
+        if (windowWidth <= 767) {
+            // Mobile: show icons only
+            navActions.querySelectorAll('.btn-text').forEach(text => {
+                text.style.display = 'none';
+            });
+            
+            // Adjust button padding
+            navActions.querySelectorAll('.cta-button').forEach(button => {
+                button.style.padding = '6px 8px';
+                button.style.fontSize = '0.75rem';
+            });
+        } else if (windowWidth <= 991) {
+            // Tablet: show short text
+            navActions.querySelectorAll('.btn-text').forEach(text => {
+                if (text.textContent === 'Masuk') text.style.display = 'none';
+                if (text.textContent === 'Pesan Sekarang') text.textContent = 'Pesan';
+            });
+        } else {
+            // Desktop: show all
+            navActions.querySelectorAll('.btn-text').forEach(text => {
+                text.style.display = 'inline-block';
+                if (text.textContent === 'Pesan') text.textContent = 'Pesan Sekarang';
+            });
+            
+            navActions.querySelectorAll('.cta-button').forEach(button => {
+                button.style.padding = '';
+                button.style.fontSize = '';
+            });
+        }
+    }
+    
+    // Initial adjustment
+    adjustNavbar();
+    
+    // Adjust on resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(adjustNavbar, 250);
+    });
+}
+
+// ===== UTILITY FUNCTIONS =====
+function showNotification(message, type = 'info') {
+    // Remove existing notification
+    const existing = document.querySelector('.notification');
+    if (existing) existing.remove();
+    
+    // Create notification
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
-    notification.setAttribute('role', 'alert');
-    notification.setAttribute('aria-live', 'polite');
     notification.innerHTML = `
         <p>${message}</p>
-        <button class="notification-close" aria-label="Tutup notifikasi"><i class="fas fa-times"></i></button>
+        <button class="notification-close"><i class="fas fa-times"></i></button>
     `;
     
-    // Add styles for notification if not already added
+    // Add styles if not already added
     if (!document.querySelector('#notification-styles')) {
         const style = document.createElement('style');
         style.id = 'notification-styles';
         style.textContent = `
             .notification {
                 position: fixed;
-                top: 100px;
+                top: 20px;
                 right: 20px;
-                background: var(--card-bg);
-                border-left: 4px solid var(--primary);
+                background: var(--bg-card);
+                color: white;
+                padding: 15px 20px;
                 border-radius: 8px;
-                padding: 20px;
                 box-shadow: var(--shadow);
                 z-index: 9999;
-                max-width: 350px;
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
-                animation: slideInRight 0.3s ease;
+                gap: 15px;
+                max-width: 350px;
+                animation: slideIn 0.3s ease;
+                border-left: 4px solid var(--primary);
             }
             
             .notification-success {
                 border-left-color: var(--success);
             }
             
-            .notification-info {
-                border-left-color: var(--primary);
+            .notification-error {
+                border-left-color: var(--danger);
             }
             
             .notification-warning {
                 border-left-color: var(--warning);
             }
             
-            .notification-error {
-                border-left-color: var(--danger);
-            }
-            
             .notification p {
                 margin: 0;
-                margin-right: 15px;
-                font-size: 0.95rem;
-                line-height: 1.4;
+                flex: 1;
             }
             
             .notification-close {
@@ -1140,25 +940,28 @@ function showNotification(message, type = "info") {
                 border: none;
                 color: var(--gray);
                 cursor: pointer;
-                font-size: 1rem;
                 padding: 5px;
-                flex-shrink: 0;
             }
             
             .notification-close:hover {
                 color: var(--light);
             }
             
-            @keyframes slideInRight {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
             }
             
             @media (max-width: 768px) {
                 .notification {
-                    top: 80px;
-                    right: 10px;
-                    left: 10px;
+                    left: 20px;
+                    right: 20px;
                     max-width: none;
                 }
             }
@@ -1168,139 +971,56 @@ function showNotification(message, type = "info") {
     
     document.body.appendChild(notification);
     
-    // Close button functionality
-    notification.querySelector('.notification-close').addEventListener('click', function() {
+    // Close button
+    notification.querySelector('.notification-close').addEventListener('click', () => {
         notification.remove();
     });
     
     // Auto remove after 5 seconds
-    setTimeout(function() {
+    setTimeout(() => {
         if (notification.parentNode) {
             notification.remove();
         }
     }, 5000);
 }
 
-// Initialize stats animation when page loads
-window.addEventListener('load', function() {
-    console.log('Page fully loaded');
+// ===== PERFORMANCE OPTIMIZATIONS =====
+// Preload critical images
+function preloadImages() {
+    const images = [
+        // Add image URLs here if needed
+    ];
     
-    // Animate uptime and support immediately
-    const uptimeElement = document.getElementById('uptime');
-    const supportElement = document.getElementById('support');
-    
-    if (uptimeElement) uptimeElement.textContent = '99.9%';
-    if (supportElement) supportElement.textContent = '24/7';
-    
-    // Add loaded class to body for CSS transitions
-    document.body.classList.add('loaded');
-    
-    // Fix any layout issues after load
-    setTimeout(function() {
-        if (window.innerWidth <= 768) {
-            fixViewportHeight();
-        }
-    }, 100);
-});
-
-// Handle window resize
-let resizeTimer;
-window.addEventListener('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function() {
-        // Close mobile menu on resize (if it's open and we're now in desktop view)
-        const mobileNav = document.getElementById('mobileNav');
-        if (mobileNav && mobileNav.classList.contains('active') && window.innerWidth > 991) {
-            mobileNav.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-        
-        // Re-initialize testimonial slider if needed
-        if (window.innerWidth <= 768) {
-            setupTestimonialSlider();
-        }
-    }, 250);
-});
-
-// Add error handling for images
-document.addEventListener('error', function(e) {
-    if (e.target.tagName === 'IMG') {
-        console.warn('Image failed to load:', e.target.src);
-        e.target.style.display = 'none';
-    }
-}, true);
-
-// Fungsi untuk menyesuaikan navbar berdasarkan ukuran layar
-function adjustNavbarForMobile() {
-    const navActions = document.querySelector('.nav-actions');
-    const loginBtn = document.getElementById('login-btn');
-    const windowWidth = window.innerWidth;
-    
-    if (windowWidth <= 480) {
-        // Untuk mobile kecil, sembunyikan teks "Masuk"
-        if (loginBtn) {
-            const btnText = loginBtn.querySelector('.btn-text');
-            if (btnText) {
-                btnText.style.display = 'none';
-            }
-        }
-        
-        // Perkecil semua tombol
-        document.querySelectorAll('.nav-actions .cta-button').forEach(btn => {
-            btn.style.padding = '6px 8px';
-            btn.style.fontSize = '0.7rem';
-        });
-    } else if (windowWidth <= 767) {
-        // Untuk tablet kecil
-        document.querySelectorAll('.nav-actions .cta-button').forEach(btn => {
-            btn.style.padding = '8px 10px';
-            btn.style.fontSize = '0.75rem';
-        });
-    } else {
-        // Reset untuk desktop
-        document.querySelectorAll('.nav-actions .cta-button').forEach(btn => {
-            btn.style.padding = '';
-            btn.style.fontSize = '';
-        });
-        
-        if (loginBtn) {
-            const btnText = loginBtn.querySelector('.btn-text');
-            if (btnText) {
-                btnText.style.display = 'inline-block';
-            }
-        }
-    }
-}
-
-// Panggil saat load dan resize
-window.addEventListener('load', adjustNavbarForMobile);
-window.addEventListener('resize', adjustNavbarForMobile);
-
-// Fix untuk Vercel deployment
-if (window.location.hostname.includes('vercel.app')) {
-    console.log('Running on Vercel');
-    
-    // Optimasi untuk Vercel
-    document.addEventListener('DOMContentLoaded', function() {
-        // Preload critical resources
-        const preloadLinks = [
-            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
-            'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;600;700&display=swap'
-        ];
-        
-        preloadLinks.forEach(href => {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.as = 'style';
-            link.href = href;
-            document.head.appendChild(link);
-        });
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
     });
 }
 
-// Tambahkan di initEventListeners()
-// ... kode yang ada ...
+// Initialize when window loads
+window.addEventListener('load', () => {
+    preloadImages();
+    
+    // Add loaded class for transitions
+    document.body.classList.add('loaded');
+    
+    // Fix for mobile viewport height
+    function setViewportHeight() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    setViewportHeight();
+    window.addEventListener('resize', setViewportHeight);
+    window.addEventListener('orientationchange', setViewportHeight);
+});
 
-// Log initialization complete
-console.log('Segeng Cloud website initialized successfully');
-
+// Error handling
+window.addEventListener('error', function(e) {
+    console.error('Website error:', e.error);
+    
+    // Show user-friendly error message
+    if (e.target.tagName === 'IMG') {
+        console.warn('Image failed to load:', e.target.src);
+    }
+}, true);
