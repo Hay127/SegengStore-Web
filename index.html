@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>🚀Segeng Cloud</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="logo-text">Segeng Cloud</div>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#pricing">Paket Hosting</a></li>
+                    <li><a href="#features">Fitur</a></li>
+                    <li><a href="#comparison">Perbandingan</a></li>
+                    <li><a href="#testimonials">Testimoni</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <a href="https://ctrl.segengcloud.xyz" class="cta-button-outline cta-button" id="login-btn" target="_blank">
+                        <i class="fas fa-sign-in-alt"></i> <span class="btn-text">Masuk</span>
+                    </a>
+                    <a href="#pricing" class="cta-button">
+                        <i class="fas fa-rocket"></i> <span class="btn-text">Pesan Sekarang</span>
+                    </a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-nav-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <div class="logo-text">Segeng Cloud</div>
+            </div>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="#home" class="mobile-nav-link">Beranda</a></li>
+            <li><a href="#pricing" class="mobile-nav-link">Paket Hosting</a></li>
+            <li><a href="#features" class="mobile-nav-link">Fitur</a></li>
+            <li><a href="#comparison" class="mobile-nav-link">Perbandingan</a></li>
+            <li><a href="#testimonials" class="mobile-nav-link">Testimoni</a></li>
+            <li><a href="#contact" class="mobile-nav-link">Kontak</a></li>
+            <li><a href="https://ctrl.segengcloud.xyz/" class="mobile-nav-link" target="_blank"><i class="fas fa-sign-in-alt"></i> Masuk</a></li>
+            <li><a href="#pricing" class="mobile-nav-link cta-button"><i class="fas fa-rocket"></i> Pesan Sekarang</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hosting Server Minecraft Premium dari <span class="highlight">Segeng Cloud</span></h1>
+                <p class="hero-subtitle">Tingkatkan pengalaman bermain Minecraft dengan server hosting berperforma tinggi, uptime 99.9%, dan dukungan teknis 24/7 dari tim ahli kami.</p>
+                
+                <div class="hero-actions">
+                    <a href="#pricing" class="cta-button">
+                        <i class="fas fa-cube"></i> <span class="btn-text">Lihat Paket Hosting</span>
+                    </a>
+                    <a href="#" class="cta-button-outline cta-button" id="demo-btn">
+                        <i class="fas fa-play-circle"></i> <span class="btn-text">Coba Demo Panel</span>
+                    </a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="servers-count">1,250+</div>
+                        <div class="stat-label">Server Aktif</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="uptime">99.9%</div>
+                        <div class="stat-label">Uptime Garansi</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="support">24/7</div>
+                        <div class="stat-label">Dukungan Teknis</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="clients">5,000+</div>
+                        <div class="stat-label">Klien Puas</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="floating-card">
+                    <i class="fas fa-server"></i>
+                    <h3>Server Minecraft</h3>
+                    <p>Performa Optimal</p>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Keamanan</h3>
+                    <p>DDoS Protection</p>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Kecepatan</h3>
+                    <p>SSD NVMe</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Paket Hosting Minecraft</h2>
+                <p class="section-subtitle">Pilih paket yang sesuai dengan kebutuhan server Anda. Semua paket termasuk panel kontrol Pterodactyl, instalasi satu klik, dan backup otomatis.</p>
+                
+                <div class="plan-selector">
+                    <button class="plan-selector-btn active" data-category="all">Semua</button>
+                    <button class="plan-selector-btn" data-category="budget">Budget</button>
+                    <button class="plan-selector-btn" data-category="standard">Standard</button>
+                    <button class="plan-selector-btn" data-category="premium">Premium</button>
+                    <button class="plan-selector-btn" data-category="enterprise">Enterprise</button>
+                </div>
+            </div>
+            
+            <div class="pricing-container">
+                <button class="scroll-btn scroll-left" id="scrollLeft">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="pricing-cards" id="pricingCards">
+                    <!-- Paket akan di-generate oleh JavaScript -->
+                </div>
+                
+                <button class="scroll-btn scroll-right" id="scrollRight">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="pricing-note">
+                <p><i class="fas fa-info-circle"></i> Semua paket sudah termasuk PPN 11%. Harga dapat berubah sewaktu-waktu.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Mengapa Memilih Segeng Cloud?</h2>
+                <p class="section-subtitle">Kami menyediakan teknologi terbaik untuk memastikan server Minecraft Anda berjalan optimal</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Fitur akan di-generate oleh JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison" id="comparison">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Perbandingan Paket</h2>
+                <p class="section-subtitle">Lihat perbedaan detail antara berbagai paket hosting kami</p>
+            </div>
+            
+            <div class="comparison-container">
+                <div class="comparison-table">
+                    <table id="comparisonTable">
+                        <!-- Data akan di-generate oleh JavaScript -->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Apa Kata Klien Kami?</h2>
+                <p class="section-subtitle">Testimoni dari pelanggan yang telah mempercayakan server mereka kepada Segeng Cloud</p>
+            </div>
+            
+            <div class="testimonials-slider">
+                <div class="testimonials-track" id="testimonialsTrack">
+                    <!-- Testimoni akan di-generate oleh JavaScript -->
+                </div>
+                
+                <div class="testimonial-nav">
+                    <button class="testimonial-nav-btn" id="testimonialPrev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="testimonial-dots" id="testimonialDots">
+                        <!-- Dots akan di-generate oleh JavaScript -->
+                    </div>
+                    <button class="testimonial-nav-btn" id="testimonialNext">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Siap Membuat Server Minecraft Impian Anda?</h2>
+                <p class="section-subtitle">Bergabunglah dengan ribuan pemain Minecraft yang telah mempercayakan server mereka kepada Segeng Cloud. Dapatkan diskon 20% untuk pembayaran 3 bulan pertama!</p>
+                
+                <div class="cta-actions">
+                    <a href="#pricing" class="cta-button">
+                        <i class="fas fa-cube"></i> <span class="btn-text">Pilih Paket Hosting</span>
+                    </a>
+                    <a href="#" class="cta-button-outline cta-button" id="contact-btn">
+                        <i class="fas fa-comment-alt"></i> <span class="btn-text">Konsultasi Gratis</span>
+                    </a>
+                </div>
+                
+                <div class="cta-promo">
+                    <div class="promo-card">
+                        <i class="fas fa-gift"></i>
+                        <h4>Diskon 20%</h4>
+                        <p>Pembayaran 3 bulan pertama</p>
+                    </div>
+                    <div class="promo-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Garansi 30 Hari</h4>
+                        <p>Uang kembali jika tidak puas</p>
+                    </div>
+                    <div class="promo-card">
+                        <i class="fas fa-sync-alt"></i>
+                        <h4>Migrasi Gratis</h4>
+                        <p>Bantuan pindah server</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Segeng Cloud</h3>
+                    <p class="footer-description">Penyedia hosting server Minecraft premium Indonesia dengan pengalaman lebih dari 5 tahun. Kami berkomitmen memberikan layanan terbaik untuk komunitas gaming Indonesia.</p>
+                    
+                    <div class="footer-social">
+                        <a href="https://discord.gg/QpGmsEwmUW" class="social-icon" aria-label="Discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="tel:+6285161266342" class="social-icon" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/" class="social-icon" aria-label="YouTube" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Layanan</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Minecraft Hosting</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> VPS Gaming</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Dedicated Server</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Setup & Migrasi</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Custom Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Bantuan</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Pusat Bantuan</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Tutorial</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Status Server</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Kontak Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Kontak</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Malang, Indonesia</a></li>
+                        <li><a href="mailto:support@segengcloud.xyz"><i class="fas fa-envelope"></i> support@segengcloud.xyz</a></li>
+                        <li><a href="tel:+6285161266342"><i class="fas fa-phone"></i> +62 851-6126-6342</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Support 24/7</a></li>
+                        <li><a href="https://discord.gg/QpGmsEwmUW"><i class="fab fa-discord"></i> Discord: Segengcloud</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-payments">
+                    <p class="payment-title">Metode Pembayaran:</p>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa" title="Visa"></i>
+                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                        <i class="fab fa-cc-paypal" title="PayPal"></i>
+                        <i class="fas fa-university" title="Transfer Bank"></i>
+                        <i class="fas fa-qrcode" title="QRIS"></i>
+                    </div>
+                </div>
+                
+                <div class="copyright">
+                    <p>&copy; 2026 Segeng Cloud. All rights reserved. | Minecraft adalah merek dagang dari Mojang AB</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Purchase Panel -->
+    <div class="purchase-panel" id="purchasePanel">
+        <div class="panel-content">
+            <button class="close-panel" id="closePanel">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="panel-header">
+                <h2 class="panel-plan-name" id="panelPlanName">Pro</h2>
+                <div class="panel-plan-price" id="panelPlanPrice">Rp 85K</div>
+                <div class="panel-plan-period" id="panelPlanPeriod">per bulan</div>
+            </div>
+            
+            <div class="loading" id="loadingPanel">
+                <div class="loader"></div>
+                <h3>Menyiapkan Pesanan Anda...</h3>
+                <p>Anda akan diarahkan ke panel pembelian dalam beberapa detik.</p>
+                
+                <div class="panel-features" id="panelFeaturesList">
+                    <!-- Features will be dynamically added by JavaScript -->
+                </div>
+                
+                <p class="panel-note">
+                    <i class="fas fa-info-circle"></i> Jika tidak dialihkan otomatis, klik tombol di bawah
+                </p>
+                
+                <a href="https://ctrl.segengcloud.xyz/" class="cta-button" target="_blank" id="manualRedirect">
+                    <i class="fas fa-external-link-alt"></i> Buka Panel Pembelian
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loader"></div>
+        <p>Memuat Segeng Cloud...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
