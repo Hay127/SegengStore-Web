@@ -6,8 +6,11 @@
     <title>🚀Segeng Cloud</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <!-- Preload untuk performa -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
     <!-- Header & Navigation -->
@@ -31,7 +34,7 @@
                 </ul>
                 
                 <div class="nav-actions">
-                    <a href="https://ctrl.segengcloud.xyz" class="cta-button-outline cta-button" id="login-btn" target="_blank">
+                    <a href="https://ctrl.segengcloud.xyz" class="cta-button-outline cta-button" id="login-btn" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-sign-in-alt"></i> <span class="btn-text">Masuk</span>
                     </a>
                     <a href="#pricing" class="cta-button">
@@ -39,7 +42,7 @@
                     </a>
                 </div>
                 
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Buka menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </nav>
@@ -48,7 +51,7 @@
 
     <!-- Mobile Navigation -->
     <div class="mobile-nav" id="mobileNav">
-        <button class="mobile-nav-close" id="mobileNavClose">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Tutup menu">
             <i class="fas fa-times"></i>
         </button>
         <div class="mobile-nav-header">
@@ -60,13 +63,13 @@
             </div>
         </div>
         <ul class="mobile-nav-links">
-            <li><a href="#home" class="mobile-nav-link">Beranda</a></li>
-            <li><a href="#pricing" class="mobile-nav-link">Paket Hosting</a></li>
-            <li><a href="#features" class="mobile-nav-link">Fitur</a></li>
-            <li><a href="#comparison" class="mobile-nav-link">Perbandingan</a></li>
-            <li><a href="#testimonials" class="mobile-nav-link">Testimoni</a></li>
-            <li><a href="#contact" class="mobile-nav-link">Kontak</a></li>
-            <li><a href="https://ctrl.segengcloud.xyz/" class="mobile-nav-link" target="_blank"><i class="fas fa-sign-in-alt"></i> Masuk</a></li>
+            <li><a href="#home" class="mobile-nav-link"><i class="fas fa-home"></i> Beranda</a></li>
+            <li><a href="#pricing" class="mobile-nav-link"><i class="fas fa-cube"></i> Paket Hosting</a></li>
+            <li><a href="#features" class="mobile-nav-link"><i class="fas fa-star"></i> Fitur</a></li>
+            <li><a href="#comparison" class="mobile-nav-link"><i class="fas fa-chart-bar"></i> Perbandingan</a></li>
+            <li><a href="#testimonials" class="mobile-nav-link"><i class="fas fa-comment"></i> Testimoni</a></li>
+            <li><a href="#contact" class="mobile-nav-link"><i class="fas fa-address-book"></i> Kontak</a></li>
+            <li><a href="https://ctrl.segengcloud.xyz/" class="mobile-nav-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-sign-in-alt"></i> Masuk</a></li>
             <li><a href="#pricing" class="mobile-nav-link cta-button"><i class="fas fa-rocket"></i> Pesan Sekarang</a></li>
         </ul>
     </div>
@@ -144,7 +147,7 @@
             </div>
             
             <div class="pricing-container">
-                <button class="scroll-btn scroll-left" id="scrollLeft">
+                <button class="scroll-btn scroll-left" id="scrollLeft" aria-label="Scroll kiri">
                     <i class="fas fa-chevron-left"></i>
                 </button>
                 
@@ -152,7 +155,7 @@
                     <!-- Paket akan di-generate oleh JavaScript -->
                 </div>
                 
-                <button class="scroll-btn scroll-right" id="scrollRight">
+                <button class="scroll-btn scroll-right" id="scrollRight" aria-label="Scroll kanan">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
@@ -209,13 +212,13 @@
                 </div>
                 
                 <div class="testimonial-nav">
-                    <button class="testimonial-nav-btn" id="testimonialPrev">
+                    <button class="testimonial-nav-btn" id="testimonialPrev" aria-label="Testimoni sebelumnya">
                         <i class="fas fa-chevron-left"></i>
                     </button>
                     <div class="testimonial-dots" id="testimonialDots">
                         <!-- Dots akan di-generate oleh JavaScript -->
                     </div>
-                    <button class="testimonial-nav-btn" id="testimonialNext">
+                    <button class="testimonial-nav-btn" id="testimonialNext" aria-label="Testimoni berikutnya">
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
@@ -269,16 +272,16 @@
                     <p class="footer-description">Penyedia hosting server Minecraft premium Indonesia dengan pengalaman lebih dari 5 tahun. Kami berkomitmen memberikan layanan terbaik untuk komunitas gaming Indonesia.</p>
                     
                     <div class="footer-social">
-                        <a href="https://discord.gg/QpGmsEwmUW" class="social-icon" aria-label="Discord">
+                        <a href="https://discord.gg/QpGmsEwmUW" class="social-icon" aria-label="Discord" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-discord"></i>
                         </a>
-                        <a href="tel:+6285161266342" class="social-icon" aria-label="WhatsApp">
+                        <a href="https://wa.me/6285161266342" class="social-icon" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="#" class="social-icon" aria-label="Instagram">
+                        <a href="#" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.youtube.com/" class="social-icon" aria-label="YouTube" target="_blank">
+                        <a href="https://www.youtube.com/" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
@@ -287,7 +290,7 @@
                 <div class="footer-column">
                     <h3>Layanan</h3>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Minecraft Hosting</a></li>
+                        <li><a href="#pricing"><i class="fas fa-chevron-right"></i> Minecraft Hosting</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> VPS Gaming</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Dedicated Server</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Setup & Migrasi</a></li>
@@ -302,7 +305,7 @@
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Tutorial</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Status Server</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Kontak Support</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Kontak Support</a></li>
                     </ul>
                 </div>
                 
@@ -313,7 +316,7 @@
                         <li><a href="mailto:support@segengcloud.xyz"><i class="fas fa-envelope"></i> support@segengcloud.xyz</a></li>
                         <li><a href="tel:+6285161266342"><i class="fas fa-phone"></i> +62 851-6126-6342</a></li>
                         <li><a href="#"><i class="fas fa-clock"></i> Support 24/7</a></li>
-                        <li><a href="https://discord.gg/QpGmsEwmUW"><i class="fab fa-discord"></i> Discord: Segengcloud</a></li>
+                        <li><a href="https://discord.gg/QpGmsEwmUW" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i> Discord: Segengcloud</a></li>
                     </ul>
                 </div>
             </div>
@@ -331,7 +334,7 @@
                 </div>
                 
                 <div class="copyright">
-                    <p>&copy; 2026 Segeng Cloud. All rights reserved. | Minecraft adalah merek dagang dari Mojang AB</p>
+                    <p>&copy; 2024 Segeng Cloud. All rights reserved. | Minecraft adalah merek dagang dari Mojang AB</p>
                 </div>
             </div>
         </div>
@@ -340,7 +343,7 @@
     <!-- Purchase Panel -->
     <div class="purchase-panel" id="purchasePanel">
         <div class="panel-content">
-            <button class="close-panel" id="closePanel">
+            <button class="close-panel" id="closePanel" aria-label="Tutup panel">
                 <i class="fas fa-times"></i>
             </button>
             
@@ -363,7 +366,7 @@
                     <i class="fas fa-info-circle"></i> Jika tidak dialihkan otomatis, klik tombol di bawah
                 </p>
                 
-                <a href="https://ctrl.segengcloud.xyz/" class="cta-button" target="_blank" id="manualRedirect">
+                <a href="https://ctrl.segengcloud.xyz/" class="cta-button" target="_blank" rel="noopener noreferrer" id="manualRedirect">
                     <i class="fas fa-external-link-alt"></i> Buka Panel Pembelian
                 </a>
             </div>
@@ -376,6 +379,6 @@
         <p>Memuat Segeng Cloud...</p>
     </div>
 
-    <script src="script.js"></script>
+    <script src="/script.js" defer></script>
 </body>
 </html>
